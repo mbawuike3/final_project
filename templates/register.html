@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Form</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='login.css')}}" type = "text/css">
+</head>
+
+<body>
+    <div class="wrapper login">
+        <div class="container">
+            <div class="col-left">
+                <div class="login-text">
+                    <h2>Welcome!</h2>
+                    <a href="" class="btn">Registration page</a>
+                    <a href="{{url_for('login')}}" class="btn">Sign in</a>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="login-form">
+                    <h2>Sign Up {% if registererror %} {{registererror}} {% endif %}</h2>
+                    <form action="/register" method="POST">
+                        <p>
+                            <label>Username/Email address<span>*</span></label>
+                            <input type="text" name = "name" placeholder="Username or Email" required>
+                        </p>
+
+                        <p>
+                            <label>Password<span>*</span></label>
+                            <input type="password" name = "password" placeholder="Password" required>
+                        </p>
+                        <p>
+                            <input type="submit" value="Register">
+                        </p>
+                        <p>
+                          <a href="">Forgot password?</a>
+                          <a href="{{url_for('index')}}">Home</a>
+                        </p>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
